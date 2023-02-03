@@ -1,9 +1,15 @@
 <nav class="paginator">
-  <a href="" class="arrow-link left">
+  <a
+    class="arrow-link left"
+    (click)="decrease()"
+  >
     <span class="material-symbols-outlined">chevron_left</span>
   </a>
-  <span>{{page}}</span>
-  <a href="" class="arrow-link right">
+  <span class="counter">{{page}}</span>
+  <a
+    class="arrow-link right"
+    (click)="increase()"
+  >
     <span class="material-symbols-outlined">chevron_right</span>
   </a>
 </nav>

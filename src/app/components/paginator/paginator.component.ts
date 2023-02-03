@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-paginator',
@@ -7,4 +8,22 @@ import {Component, Input} from '@angular/core';
 })
 export class PaginatorComponent {
   @Input() page!: number;
+
+  constructor(private router: Router) {
+  }
+  increase() {
+    this.router.navigate(["/"], {
+      queryParams: {
+        page: +this.page + 1
+      }
+    })
+  }
+
+  decrease() {
+    this.router.navigate(["/"], {
+      queryParams: {
+        page: +this.page - 1
+      }
+    })
+  }
 }

@@ -1,7 +1,17 @@
+@import "functions"
+
 .paginator
   display: flex
   align-items: center
+  justify-content: flex-start
+
+  & .counter
+    padding-left: 25px
+    padding-right: 25px
+    line-height: 110%
+    font-size: 1rem
 
 .arrow-link
   & span
+    @include link-style
     font-size: 18px
