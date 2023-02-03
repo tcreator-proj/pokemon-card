@@ -16,6 +16,7 @@ import {CardListComponent} from "./components/card-list/card-list.component";
 import {RouterLink, RouterOutlet} from "@angular/router";
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 import { LoaderComponent } from './components/loader/loader.component';
+import { PaginatorComponent } from './components/paginator/paginator.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { LoaderComponent } from './components/loader/loader.component';
     FilterBlockComponent,
     HeaderComponent,
     MainLayoutComponent,
-    LoaderComponent
+    LoaderComponent,
+    PaginatorComponent
   ],
   imports: [
     BrowserModule,

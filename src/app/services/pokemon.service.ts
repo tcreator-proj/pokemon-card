@@ -15,7 +15,7 @@ export class PokemonService {
     return this.apollo.query({
       query: gql`
         query {
-          cards(pagination: {count: 25, page: 6}) {
+          cards(pagination: {count: 5, page: 6}) {
             id
             hp
             name

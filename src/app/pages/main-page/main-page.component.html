@@ -1,5 +1,13 @@
-<app-header>
-  Pokemon cards
-</app-header>
 
-<app-card-list></app-card-list>
+<div>
+  <app-header>
+    Pokemon cards
+  </app-header>
+
+  <app-loader *ngIf="loading; else listBlock"></app-loader>
+  <ng-template #listBlock>
+    <app-card-list [cardList]="cards"></app-card-list>
+    <app-paginator [page]="currentPage"></app-paginator>
+  </ng-template>
+
+</div>
