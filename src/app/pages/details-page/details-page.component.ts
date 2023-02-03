@@ -1,8 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {PokemonService} from "../../services/pokemon.service";
 import Card from "../../types/Card";
 import {ActivatedRoute, Params, Router} from "@angular/router";
-import data from "../../types/Data";
 import Data from "../../types/Data";
 import CardData from "../../types/CardData";
 

@@ -1,7 +1,12 @@
 type Card = {
   id: string,
-  hp: number,
   name: string,
+  category: string,
+  rarity: string,
+  hp?: number,
+
+  stage?: string,
+  illustrator?: string,
 }
 
 export default Card;

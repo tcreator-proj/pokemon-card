@@ -1,6 +1,22 @@
-<li>
-  <h2><a [routerLink]="['/cards', card.id]">{{card.name}}</a></h2>
-  <label for="hp">HP: {{card.hp}}</label>
-  <progress id="hp" value="{{card.hp}}" max="100"></progress>
-  <ng-content></ng-content>
-</li>
+<article class="item">
+  <div class="title-block">
+    <h2 class="title-block__title">
+      {{card.name}}
+    </h2>
+    <a
+      class="title__link"
+      [routerLink]="['/cards', card.id]"
+    ><span class="material-symbols-outlined">arrow_forward</span></a>
+  </div>
+  <div class="describe-block">
+    <div class="info">
+      <span class="info__title">Category</span>
+      <a routerLink="" class="info__link">{{card.category}}</a>
+    </div>
+    <div class="info">
+      <span class="info__title">Rarity</span>
+      <a routerLink="" class="info__link">{{card.rarity}}</a>
+    </div>
+  </div>
+</article>
+

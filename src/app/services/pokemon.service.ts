@@ -19,9 +19,8 @@ export class PokemonService {
             id
             hp
             name
-            item {
-               name
-            }
+            category
+            rarity
           }
         }
       `
@@ -36,6 +35,7 @@ export class PokemonService {
             id
             hp
             name
+            category
             item {
               name
             }

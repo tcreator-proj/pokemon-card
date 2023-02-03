@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200")
+
+@mixin link-style
+  color: #2962FF
+  text-decoration: none
+
+.item
+  height: 100px
+  box-sizing: border-box
+  border-bottom: 1px solid #A5A5A5
+
+.title-block
+  display: flex
+  align-items: center
+
+.title-block__title
+  display: inline-block
+  font-size: 1.25rem
+  line-height: 23px
+  padding-right: 19px
+
+.title__link
+  @include link-style
+  height: 20px
+
+  & span
+    font-size: 1.25rem
+
+
+.describe-block
+  display: flex
+  flex-direction: row
+  justify-content: flex-start
+
+  & .info
+    flex: 1 1 0
+
+  & .info__title
+    padding-right: 104px
+
+  & .info__link
+    @include link-style
