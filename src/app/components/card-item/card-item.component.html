@@ -1,0 +1,6 @@
+<li>
+  <h2><a [routerLink]="['/cards', card.id]">{{card.name}}</a></h2>
+  <label for="hp">HP: {{card.hp}}</label>
+  <progress id="hp" value="{{card.hp}}" max="100"></progress>
+  <ng-content></ng-content>
+</li>

@@ -1,0 +1,143 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: Query
+}
+
+directive @locale(lang: String!) on FIELD
+
+type AbilitiesListItem {
+    effect: String
+    name: String
+    type: String
+}
+
+type AttacksListItem {
+    cost: [String]
+    damage: String
+    effect: String
+    name: String!
+}
+
+type Card {
+    abilities: [AbilitiesListItem]
+    attacks: [AttacksListItem]
+    category: String!
+    description: String
+    dexId: [Float]
+    effect: String
+    energyType: String
+    evolveFrom: String
+    hp: Float
+    id: String!
+    illustrator: String
+    image: String
+    item: Item
+    legal: Legal!
+    level: Float
+    localId: String!
+    name: String!
+    rarity: String!
+    regulationMark: String
+    resistances: [WeakResListItem]
+    retreat: Float
+    set: Set!
+    stage: String
+    suffix: String
+    trainerType: String
+    types: [String]
+    variants: Variants
+    weaknesses: [WeakResListItem]
+}
+
+type CardCount {
+    firstEd: Float
+    holo: Float
+    normal: Float
+    official: Float!
+    reverse: Float
+    total: Float!
+}
+
+type Item {
+    effect: String!
+    name: String!
+}
+
+type Legal {
+    expanded: Boolean
+    standard: Boolean
+}
+
+type Query {
+    card(id: ID!, set: String): Card
+    cards(filters: CardsFilters, pagination: Pagination): [Card]
+    serie(id: ID!): Serie
+    series: [Serie]
+    set(id: ID!): Set
+    sets: [Set]
+}
+
+type Serie {
+    id: String!
+    logo: String
+    name: String!
+    sets: [Set]!
+}
+
+type Set {
+    cardCount: CardCount!
+    cards: [Card]!
+    id: String!
+    logo: String
+    name: String!
+    releaseDate: String!
+    serie: Serie!
+    symbol: String
+    tcgOnline: String
+}
+
+type StringEndpoint {
+    cards: [Card]!
+    name: String!
+}
+
+type Variants {
+    firstEdition: Boolean!
+    holo: Boolean!
+    normal: Boolean!
+    reverse: Boolean!
+    wPromo: Boolean!
+}
+
+type WeakResListItem {
+    type: String!
+    value: String
+}
+
+input CardsFilters {
+    category: String
+    description: String
+    dexId: Float
+    energyType: String
+    evolveFrom: String
+    hp: Float
+    id: ID
+    illustrator: String
+    image: String
+    level: Float
+    levelId: String
+    localId: String
+    name: String
+    rarity: String
+    regulationMark: String
+    retreat: Float
+    stage: String
+    suffix: String
+    trainerType: String
+}
+
+input Pagination {
+    count: Float!
+    page: Float!
+}

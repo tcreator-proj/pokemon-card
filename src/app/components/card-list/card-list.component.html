@@ -1,0 +1,9 @@
+<app-loader *ngIf="loading; else cardsBlock"></app-loader>
+<ng-template #cardsBlock>
+  <ul class="card-list">
+    <app-card-item
+      *ngFor="let card of cards"
+        [card]="card"></app-card-item>
+  </ul>
+</ng-template>
+

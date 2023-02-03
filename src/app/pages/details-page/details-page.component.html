@@ -1,0 +1,12 @@
+<nav>
+  <a routerLink="/cards"><<< back</a>
+</nav>
+
+<app-loader *ngIf="loader; else afterLoading"></app-loader>
+
+<ng-template #afterLoading>
+  <app-card-item
+    [card]="card">
+    <p>Card id: {{card.id}}</p>
+  </app-card-item>
+</ng-template>
