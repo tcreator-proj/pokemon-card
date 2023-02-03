@@ -1,14 +1,28 @@
 <nav class="paginator">
   <a
+    [ngClass]="{
+      disable: +page === 1
+    }"
     class="arrow-link left"
-    (click)="decrease()"
+    [routerLink]="['/']"
+    [queryParams]="{
+      page: +page - 1
+    }"
   >
     <span class="material-symbols-outlined">chevron_left</span>
   </a>
   <span class="counter">{{page}}</span>
   <a
+    [ngClass]="{
+      disable: end
+    }"
+
     class="arrow-link right"
-    (click)="increase()"
+    [routerLink]="['/']"
+    [queryParams]="{
+      page: +page + 1
+    }"
+
   >
     <span class="material-symbols-outlined">chevron_right</span>
   </a>

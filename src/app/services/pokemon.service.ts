@@ -11,11 +11,11 @@ export class PokemonService {
 
   constructor(private apollo: Apollo) { }
 
-  getAllPokeCards() {
+  getAllPokeCards(page: number, count: number) {
     return this.apollo.query({
       query: gql`
         query {
-          cards(pagination: {count: 5, page: 6}) {
+          cards(pagination: {count: ${count}, page: ${page}}) {
             id
             hp
             name
