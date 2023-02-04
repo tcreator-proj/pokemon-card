@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-filter-block',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./filter-block.component.sass']
 })
 export class FilterBlockComponent {
-
+  @Input() header!: string;
 }

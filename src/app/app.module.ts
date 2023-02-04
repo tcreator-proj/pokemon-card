@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
 import AppRouterModule from "./app-router.module";
@@ -17,6 +17,9 @@ import {RouterLink, RouterOutlet} from "@angular/router";
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { PaginatorComponent } from './components/paginator/paginator.component';
+import { InputFilterComponent } from './components/input-filter/input-filter.component';
+import { CheckboxFilterComponent } from './components/checkbox-filter/checkbox-filter.component';
+import { RadiobattonFilterComponent } from './components/radiobatton-filter/radiobatton-filter.component';
 
 @NgModule({
   declarations: [
@@ -30,14 +33,17 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
     HeaderComponent,
     MainLayoutComponent,
     LoaderComponent,
-    PaginatorComponent
+    PaginatorComponent,
+    InputFilterComponent,
+    CheckboxFilterComponent,
+    RadiobattonFilterComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     GraphQLModule,
     HttpClientModule,
-
+    ReactiveFormsModule,
     AppRouterModule,
     RouterOutlet,
     RouterLink
