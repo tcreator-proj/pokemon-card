@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {Router} from "@angular/router";
 import Throttle from "../../decorators/Debounce";
+import QueryParams from "../../types/QueryParams";
 
 @Component({
   selector: 'app-input-filter',
@@ -14,10 +15,10 @@ export class InputFilterComponent {
   inputFilter(event: Event) {
     const target: HTMLInputElement = <HTMLInputElement> event.target;
     const {value} = target;
-    console.log(value)
 
-    // this.router.navigate(['/'], {
-    //
-    // })
+    const qParams: QueryParams = value ? {name: value} : {}
+    this.router.navigate(['/'], {
+      queryParams: qParams
+    })
   }
 }

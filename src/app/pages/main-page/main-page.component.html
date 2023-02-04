@@ -1,19 +1,15 @@
-<div>
+<div class="main-container">
+  <div class="list-container">
   <app-header>
     Pokemon cards
   </app-header>
-
   <app-loader *ngIf="loading; else listBlock"></app-loader>
   <ng-template #listBlock>
-    <section>
       <app-card-list [cardList]="cards"></app-card-list>
       <app-paginator [page]="currentPage"></app-paginator>
-    </section>
-    <aside>
-      <app-filter-block header="filters"></app-filter-block>
-    </aside>
-
-
   </ng-template>
-
+  </div>
+  <aside class="filter-container">
+    <app-filter-block header="Фильтры"></app-filter-block>
+  </aside>
 </div>

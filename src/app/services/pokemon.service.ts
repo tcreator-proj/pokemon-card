@@ -1,23 +1,46 @@
 import {Injectable} from '@angular/core';
-import {Apollo, gql} from "apollo-angular";
+import {Apollo, gql, graphql} from "apollo-angular";
 import {Observable} from "rxjs";
 import Data from "../types/Data";
 import CardData from "../types/CardData";
+import RequestConfig from "../types/RequestConfig";
+import {parseJSON} from "apollo-angular/schematics/utils";
 
 @Injectable({
   providedIn: 'root'
 })
 export class PokemonService {
 
-  constructor(private apollo: Apollo) { }
+  constructor(private apollo: Apollo) {
+  }
 
-  getAllPokeCards(page: number, count: number) {
+  getAllPokeCards(params: RequestConfig) {
+    const {pagination, filters} = params;
+
     return this.apollo.query({
+      variables: {
+        ...pagination, ...filters
+      },
       query: gql`
-        query {
-          cards(pagination: {count: ${count}, page: ${page}}) {
+        query getAllCards(
+          $page: Float!
+          $count: Float!
+          $illustrator: String
+          $name: String
+          $category: String
+          $rarity: String
+        ){
+          cards(
+            pagination: {
+              page: $page
+              count: $count}
+            filters: {
+              illustrator: $illustrator
+              category: $category
+              name: $name
+              rarity: $rarity
+            }) {
             id
-            hp
             name
             category
             rarity
