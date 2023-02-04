@@ -6,10 +6,13 @@
   <app-loader *ngIf="loading; else listBlock"></app-loader>
   <ng-template #listBlock>
       <app-card-list [cardList]="cards"></app-card-list>
-      <app-paginator [page]="currentPage"></app-paginator>
+      <app-paginator [page]="currentPage" [end]="cards.length !== PAGE_COUNT"></app-paginator>
   </ng-template>
   </div>
   <aside class="filter-container">
-    <app-filter-block header="Фильтры"></app-filter-block>
+    <app-filter-block
+      header="Фильтры"
+      [inputValue]="queryParams.name || ''"
+    ></app-filter-block>
   </aside>
 </div>

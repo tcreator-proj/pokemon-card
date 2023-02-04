@@ -4,10 +4,7 @@
       disable: +page === 1
     }"
     class="arrow-link left"
-    [routerLink]="['/']"
-    [queryParams]="{
-      page: +page - 1
-    }"
+    (click)="previousPage()"
   >
     <span class="material-symbols-outlined">chevron_left</span>
   </a>
@@ -16,13 +13,8 @@
     [ngClass]="{
       disable: end
     }"
-
+    (click)="nextPage()"
     class="arrow-link right"
-    [routerLink]="['/']"
-    [queryParams]="{
-      page: +page + 1
-    }"
-
   >
     <span class="material-symbols-outlined">chevron_right</span>
   </a>

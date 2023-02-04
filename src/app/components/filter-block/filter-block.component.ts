@@ -8,4 +8,5 @@ import {FormGroup} from "@angular/forms";
 })
 export class FilterBlockComponent {
   @Input() header!: string;
+  @Input() inputValue: string = "";
 }

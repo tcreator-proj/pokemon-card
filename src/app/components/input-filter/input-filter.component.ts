@@ -9,6 +9,7 @@ import QueryParams from "../../types/QueryParams";
   styleUrls: ['./input-filter.component.sass']
 })
 export class InputFilterComponent {
+  @Input() value: string = "";
   constructor(private router: Router) {
   }
   @Throttle(1000)

@@ -1,4 +1,5 @@
 @import "functions"
+@import "variables"
 
 .paginator
   display: flex
@@ -12,6 +13,7 @@
     font-size: 1rem
 
 .arrow-link
+  cursor: pointer
   & span
     @include link-style
     font-size: 18px
@@ -20,3 +22,5 @@
 .disable
   pointer-events: none
   cursor: auto
+  & span
+    color: $global-second-color
