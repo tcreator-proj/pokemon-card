@@ -1,21 +1,21 @@
-<form action="">
+<form action="" (change)="onChange($event)">
 
   <div class="input-block">
-    <label for="rarity" class="input-label">Name</label>
+    <label for="rarity" class="input-label">Rarity</label>
     <input
       type="text"
       class="input-text"
       id="rarity"
+      [value]="choosesField"
       disabled
     />
   </div>
   <ul>
     <li
-
       *ngFor="let rarity of rarityList"
       class="checkbox-item"
     >
-      <input type="checkbox" [id]="rarity">
+      <input type="checkbox" [id]="rarity" [checked]="checkDefault(rarity)">
       <label [for]="rarity">{{rarity}}</label>
     </li>
   </ul>

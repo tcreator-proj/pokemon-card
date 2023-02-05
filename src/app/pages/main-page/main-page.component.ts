@@ -14,18 +14,28 @@ export class MainPageComponent implements OnInit {
   readonly PAGE_COUNT: number = 10;
   cards!: Card[];
   currentPage: number = 1;
-  queryParams!: QueryParams;
+
+  nameQuery: string = '';
+  rarityQuery: string[] = [];
+  categoryQuery: string = "";
+
   loading: boolean = true;
 
   constructor(
     private pokemonService: PokemonService,
     private route: ActivatedRoute
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((qp: QueryParams) => {
-      this.queryParams = {...qp};
       const {page, name, category, rarity}: QueryParams = qp;
+
+      this.nameQuery = name || '';
+      this.categoryQuery = category || '';
+      if(rarity) {
+        this.rarityQuery = rarity.trim().split(",");
+      }
 
       this.currentPage = page || 1;
 

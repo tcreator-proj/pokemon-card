@@ -13,7 +13,9 @@
     <app-filter-block
       header="Фильтры"
       [cardList]="cards"
-      [inputValue]="queryParams.name || ''"
+      [rarityQuery]="rarityQuery"
+      [nameQuery]="nameQuery"
+      [categoryQuery]="categoryQuery"
     ></app-filter-block>
   </aside>
 </div>

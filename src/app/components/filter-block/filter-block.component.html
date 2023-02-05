@@ -4,10 +4,14 @@
 </div>
 
 <form>
-  <app-input-filter [value]="inputValue"></app-input-filter>
+  <app-input-filter [value]="nameQuery"></app-input-filter>
   <app-checkbox-filter
+    [defaultChecked]="rarityQuery"
     [rarityList]="rarityList"
   ></app-checkbox-filter>
-  <app-radiobatton-filter></app-radiobatton-filter>
+  <app-radiobatton-filter
+    [categories]="categoriesList"
+    [defaultValue]="categoryQuery"
+  ></app-radiobatton-filter>
 </form>
 

@@ -1,30 +1,34 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {FormGroup} from "@angular/forms";
 import Card from "../../types/Card";
 import {PokemonService} from "../../services/pokemon.service";
-import Data from "../../types/Data";
+import QueryParams from "../../types/QueryParams";
 
 @Component({
   selector: 'app-filter-block',
   templateUrl: './filter-block.component.html',
   styleUrls: ['./filter-block.component.sass']
 })
-export class FilterBlockComponent implements OnInit{
+export class FilterBlockComponent implements OnInit {
   @Input() header!: string;
-  @Input() inputValue: string = "";
   @Input() cardList!: Card[];
-  rarityList: string[] = [];
+  @Input() categoryQuery: string = "";
+  @Input() nameQuery: string = "";
+  @Input() rarityQuery: string[] = [];
 
   checkBoxLoader: boolean = false;
+  rarityList!: string[];
+  categoriesList!: string[];
 
   constructor(private pokemonService: PokemonService) {}
   ngOnInit(): void {
     this.pokemonService
-      .getDataByFields(['rarity'])
+      .getDataByFields(['rarity', 'category'])
       .subscribe((value: any) => {
-        const rarities: string = value.data.cards.map((card: Card) => card.rarity)
+        const rarities: string[] = value.data.cards.map((card: Card) => card.rarity);
+        const categories: string[] = value.data.cards.map((card: Card) => card.category);
+
         this.rarityList = Array.from(new Set(rarities));
-        this.checkBoxLoader = true;
+        this.categoriesList = Array.from(new Set(categories));
       })
   }
 
