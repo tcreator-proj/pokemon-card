@@ -9,7 +9,6 @@ import AppRouterModule from "./app-router.module";
 import {MainPageComponent} from "./pages/main-page/main-page.component";
 import {DetailsPageComponent} from "./pages/details-page/details-page.component";
 import {CardItemComponent} from "./components/card-item/card-item.component";
-import {DetailsComponent} from "./components/details/details.component";
 import {FilterBlockComponent} from "./components/filter-block/filter-block.component";
 import {HeaderComponent} from "./components/header/header.component";
 import {CardListComponent} from "./components/card-list/card-list.component";
@@ -20,7 +19,8 @@ import {PaginatorComponent} from './components/paginator/paginator.component';
 import {InputFilterComponent} from './components/input-filter/input-filter.component';
 import {CheckboxFilterComponent} from './components/checkbox-filter/checkbox-filter.component';
 import {RadiobattonFilterComponent} from './components/radiobatton-filter/radiobatton-filter.component';
-import {ToStrArrayPipe} from './pipes/to-str-array.pipe';
+import {PokemonService} from "./services/pokemon.service";
+import {SharedService} from "./services/shared.service";
 
 @NgModule({
   declarations: [
@@ -29,7 +29,6 @@ import {ToStrArrayPipe} from './pipes/to-str-array.pipe';
     DetailsPageComponent,
     CardItemComponent,
     CardListComponent,
-    DetailsComponent,
     FilterBlockComponent,
     HeaderComponent,
     MainLayoutComponent,
@@ -37,9 +36,8 @@ import {ToStrArrayPipe} from './pipes/to-str-array.pipe';
     PaginatorComponent,
     InputFilterComponent,
     CheckboxFilterComponent,
+
     RadiobattonFilterComponent,
-    ToStrArrayPipe,
-    ToStrArrayPipe
   ],
   imports: [
     BrowserModule,
@@ -47,11 +45,12 @@ import {ToStrArrayPipe} from './pipes/to-str-array.pipe';
     GraphQLModule,
     HttpClientModule,
     ReactiveFormsModule,
+
     AppRouterModule,
     RouterOutlet,
     RouterLink
   ],
-  providers: [AppRouterModule],
+  providers: [AppRouterModule, PokemonService, SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

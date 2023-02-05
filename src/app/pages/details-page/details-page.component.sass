@@ -1,0 +1,38 @@
+@import "functions"
+.main
+  padding-top: 50px
+
+.header
+  margin-bottom: 53px
+
+.nav
+  display: flex
+  flex-direction: row
+  align-items: center
+  margin-bottom: 20px
+  & .arrow
+    position: relative
+    bottom: -3px
+    font-size: 15px
+
+.describe-block
+  display: flex
+  flex-direction: row
+  justify-content: flex-start
+  margin-bottom: 30px
+  & .info
+    flex: 1 1 0
+
+  & .info__title
+    display: inline-block
+    width: 200px
+
+  & .info__link
+    @include link-style
+    pointer-events: none
+
+.title__link
+  @include link-style
+.back
+  padding-left: 10px
+

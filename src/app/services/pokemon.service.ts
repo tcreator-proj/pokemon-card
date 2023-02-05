@@ -68,10 +68,9 @@ export class PokemonService {
             id
             hp
             name
+            rarity
             category
-            item {
-              name
-            }
+            illustrator
           }
         }
       `

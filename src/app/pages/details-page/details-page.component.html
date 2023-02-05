@@ -1,20 +1,40 @@
-<main>
+<main class="main">
   <app-loader *ngIf="loader; else afterLoading"></app-loader>
 
   <ng-template #afterLoading>
-    <nav>
+    <nav class="nav">
       <a
         class="title__link"
         [routerLink]="['/cards']"
         [queryParams]="queryParams"
       >
-
-        <span class="material-symbols-outlined">arrow_back</span></a>
+        <span class="material-symbols-outlined arrow">arrow_back</span><span class="back">Вернуться</span></a>
     </nav>
-    <app-header>
-      {{card.name}}
-    </app-header>
+    <div class="header">
+      <app-header>
+        {{card.name}}
+      </app-header>
+    </div>
+    <div class="describe-block">
+      <div class="info">
+        <span class="info__title">Category</span>
+        <span routerLink="" class="info__link">{{card.category}}</span>
+      </div>
+      <div class="info">
+        <span class="info__title">Rarity</span>
+        <span routerLink="" class="info__link">{{card.rarity}}</span>
+      </div>
+    </div>
+    <div class="describe-block">
+      <div class="info">
+        <span class="info__title">HP</span>
+        <span routerLink="" class="info__link">{{card.hp}}</span>
+      </div>
+      <div class="info">
+        <span class="info__title">Illustrator</span>
+        <span routerLink="" class="info__link">{{card.illustrator}}</span>
+      </div>
+    </div>
   </ng-template>
-
 </main>
 

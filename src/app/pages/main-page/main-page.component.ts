@@ -26,8 +26,7 @@ export class MainPageComponent implements OnInit, OnDestroy {
     private sharedData: SharedService,
     private pokemonService: PokemonService,
     private route: ActivatedRoute
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((qp: QueryParams) => {
@@ -60,7 +59,7 @@ export class MainPageComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.route.queryParams.subscribe((params: QueryParams) => {
-      this.sharedData.setQueryData(params)
+      this.sharedData.setQueryData(params);
     }).unsubscribe()
   }
 }

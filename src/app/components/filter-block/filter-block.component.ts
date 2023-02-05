@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import Card from "../../types/Card";
 import {PokemonService} from "../../services/pokemon.service";
-import QueryParams from "../../types/QueryParams";
 
 @Component({
   selector: 'app-filter-block',
