@@ -1,8 +1,20 @@
-<app-loader *ngIf="loader; else afterLoading"></app-loader>
+<main>
+  <app-loader *ngIf="loader; else afterLoading"></app-loader>
 
-<ng-template #afterLoading>
-  <app-card-item
-    [card]="card">
-    <p>Card id: {{card.id}}</p>
-  </app-card-item>
-</ng-template>
+  <ng-template #afterLoading>
+    <nav>
+      <a
+        class="title__link"
+        [routerLink]="['/cards']"
+        [queryParams]="queryParams"
+      >
+
+        <span class="material-symbols-outlined">arrow_back</span></a>
+    </nav>
+    <app-header>
+      {{card.name}}
+    </app-header>
+  </ng-template>
+
+</main>
+
