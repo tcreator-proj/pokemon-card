@@ -14,9 +14,22 @@ export class PokemonService {
   constructor(private apollo: Apollo) {
   }
 
-  getAllPokeCards(params: RequestConfig) {
-    const {pagination, filters} = params;
+  getDataByFields(fields: string[]) {
+    const fieldString: string = fields.join(" ");
+    return this.apollo.query({
+      query: gql`
+        query {
+          cards {
+            ${fieldString}
+          }
+        }
+      `
+    })
+  }
 
+  getPokeCards(params: RequestConfig, fields: string[] = ['id', 'rarity', 'name', 'category']) {
+    const {pagination, filters} = params;
+    const fieldString: string = fields.join(" ");
     return this.apollo.query({
       variables: {
         ...pagination, ...filters
@@ -40,10 +53,7 @@ export class PokemonService {
               name: $name
               rarity: $rarity
             }) {
-            id
-            name
-            category
-            rarity
+            ${fieldString}
           }
         }
       `

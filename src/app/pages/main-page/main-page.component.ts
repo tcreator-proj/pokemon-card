@@ -4,7 +4,6 @@ import Card from "../../types/Card";
 import {ActivatedRoute} from "@angular/router";
 import QueryParams from "../../types/QueryParams";
 import RequestConfig from "../../types/RequestConfig";
-import Filters from "../../types/Filters";
 
 @Component({
   selector: 'app-main-page',
@@ -13,8 +12,7 @@ import Filters from "../../types/Filters";
 })
 export class MainPageComponent implements OnInit {
   readonly PAGE_COUNT: number = 10;
-  cards: Card[] = [];
-
+  cards!: Card[];
   currentPage: number = 1;
   queryParams!: QueryParams;
   loading: boolean = true;
@@ -22,8 +20,7 @@ export class MainPageComponent implements OnInit {
   constructor(
     private pokemonService: PokemonService,
     private route: ActivatedRoute
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((qp: QueryParams) => {
@@ -41,12 +38,11 @@ export class MainPageComponent implements OnInit {
       }
 
       this.pokemonService
-        .getAllPokeCards(requestConfig)
+        .getPokeCards(requestConfig)
         .subscribe((value: any) => {
           this.loading = false;
           this.cards = value.data.cards;
         })
     })
-
   }
 }

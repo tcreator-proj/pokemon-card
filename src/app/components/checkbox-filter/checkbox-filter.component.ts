@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {ChangeDetectorRef, Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 
 @Component({
   selector: 'app-checkbox-filter',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./checkbox-filter.component.sass']
 })
 export class CheckboxFilterComponent {
-
+  @Input() rarityList!: string[];
 }

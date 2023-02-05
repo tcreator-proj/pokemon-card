@@ -3,7 +3,7 @@ import Pagination from "./Pagination";
 
 type RequestConfig = {
   filters?: Filters,
-  pagination: Pagination
+  pagination?: Pagination
 }
 
 export default RequestConfig;

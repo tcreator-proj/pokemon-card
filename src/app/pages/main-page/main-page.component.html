@@ -12,6 +12,7 @@
   <aside class="filter-container">
     <app-filter-block
       header="Фильтры"
+      [cardList]="cards"
       [inputValue]="queryParams.name || ''"
     ></app-filter-block>
   </aside>

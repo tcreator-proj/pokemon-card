@@ -1,1 +1,24 @@
-<p>checkbox-filter works!</p>
+<form action="">
+
+  <div class="input-block">
+    <label for="rarity" class="input-label">Name</label>
+    <input
+      type="text"
+      class="input-text"
+      id="rarity"
+      disabled
+    />
+  </div>
+  <ul>
+    <li
+
+      *ngFor="let rarity of rarityList"
+      class="checkbox-item"
+    >
+      <input type="checkbox" [id]="rarity">
+      <label [for]="rarity">{{rarity}}</label>
+    </li>
+  </ul>
+
+
+</form>
