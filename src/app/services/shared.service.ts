@@ -1,20 +1,20 @@
-import { Injectable } from '@angular/core';
-import QueryParams from "../types/QueryParams";
+import { Injectable } from '@angular/core'
+import QueryParams from '../types/QueryParams'
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SharedService {
-  private queryData!: QueryParams;
+  private queryData!: QueryParams
 
   public getQueryData(): QueryParams {
-    return {...this.queryData};
+    return { ...this.queryData }
   }
 
   public setQueryData(params: QueryParams): void {
     this.queryData = {
       ...this.queryData,
-      ...params
+      ...params,
     }
   }
 }

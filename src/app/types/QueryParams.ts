@@ -1,8 +1,8 @@
 type QueryParams = {
-  page?: number,
-  name?: string,
-  category?: string,
+  page?: number
+  name?: string
+  category?: string
   rarity?: string
 }
 
-export default QueryParams;
+export default QueryParams

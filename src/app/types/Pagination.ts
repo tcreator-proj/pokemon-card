@@ -1,5 +1,5 @@
 type Pagination = {
-  page?: number,
+  page?: number
   count?: number
 }
-export default Pagination;
+export default Pagination

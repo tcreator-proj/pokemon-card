@@ -9,4 +9,4 @@ type Filters = {
   trainerType?: string
 }
 
-export default Filters;
+export default Filters

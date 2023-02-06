@@ -8,6 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
+    "prettier": "prettier --write .",
     "prepare": "husky install"
   },
   "private": true,
@@ -56,14 +57,8 @@
   },
   "lint-staged": {
     "src/**/*.{js,ts,sass,md,html,json}": [
-      "prettier --write",
+      "prettier --write .",
       "git add"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "ng lint && lint-staged",
-      "pre-push": "ng build --prod"
-    }
   }
 }

@@ -1,38 +1,34 @@
-<form
-  action=""
-  class="form"
-  (change)="onChange($event)"
->
-
-    <div class="input-block">
-      <label for="rarity" class="input-label">Rarity</label>
-      <input
-        (click)="toggle()"
-        [ngClass]="{
-          focused: toggledList
-        }"
-        type="text"
-        class="input-text"
-        id="rarity"
-        [value]="choosesField"
-        readonly
-      >
-    </div>
-
-    <ul
-      tabindex="1"
-      class="drop-list"
+<form action="" class="form" (change)="onChange($event)">
+  <div class="input-block">
+    <label for="rarity" class="input-label">Rarity</label>
+    <input
+      (click)="toggle()"
       [ngClass]="{
-        active: toggledList
+        focused: toggledList
       }"
-    >
-      <li
-        *ngFor="let rarity of rarityList"
-        class="checkbox-item"
-      >
-        <input type="checkbox" class="checkbox" [id]="rarity" [checked]="checkDefault(rarity)">
-        <label [for]="rarity">{{rarity}}</label>
-      </li>
-    </ul>
+      type="text"
+      class="input-text"
+      id="rarity"
+      [value]="choosesField"
+      readonly
+    />
+  </div>
 
+  <ul
+    tabindex="1"
+    class="drop-list"
+    [ngClass]="{
+      active: toggledList
+    }"
+  >
+    <li *ngFor="let rarity of rarityList" class="checkbox-item">
+      <input
+        type="checkbox"
+        class="checkbox"
+        [id]="rarity"
+        [checked]="checkDefault(rarity)"
+      />
+      <label [for]="rarity">{{ rarity }}</label>
+    </li>
+  </ul>
 </form>

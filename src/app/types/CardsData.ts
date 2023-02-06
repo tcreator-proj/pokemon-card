@@ -1,6 +1,6 @@
-import Card from "./Card";
+import Card from './Card'
 
 type CardsData = {
   cards: Card[]
 }
-export default CardsData;
+export default CardsData

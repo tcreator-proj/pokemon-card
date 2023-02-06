@@ -1,20 +1,18 @@
-import {Injectable} from '@angular/core';
-import {Apollo, gql} from "apollo-angular";
-import {Observable} from "rxjs";
-import Data from "../types/Data";
-import CardData from "../types/CardData";
-import RequestConfig from "../types/RequestConfig";
+import { Injectable } from '@angular/core'
+import { Apollo, gql } from 'apollo-angular'
+import { Observable } from 'rxjs'
+import Data from '../types/Data'
+import CardData from '../types/CardData'
+import RequestConfig from '../types/RequestConfig'
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PokemonService {
-
-  constructor(private apollo: Apollo) {
-  }
+  constructor(private apollo: Apollo) {}
 
   getDataByFields(fields: string[]) {
-    const fieldString: string = fields.join(" ");
+    const fieldString: string = fields.join(' ')
     return this.apollo.query({
       query: gql`
         query {
@@ -22,16 +20,20 @@ export class PokemonService {
             ${fieldString}
           }
         }
-      `
+      `,
     })
   }
 
-  getPokeCards(params: RequestConfig, fields: string[] = ['id', 'rarity', 'name', 'category']) {
-    const {pagination, filters} = params;
-    const fieldString: string = fields.join(" ");
+  getPokeCards(
+    params: RequestConfig,
+    fields: string[] = ['id', 'rarity', 'name', 'category'],
+  ) {
+    const { pagination, filters } = params
+    const fieldString: string = fields.join(' ')
     return this.apollo.query({
       variables: {
-        ...pagination, ...filters
+        ...pagination,
+        ...filters,
       },
       query: gql`
         query getAllCards(
@@ -55,7 +57,7 @@ export class PokemonService {
             ${fieldString}
           }
         }
-      `
+      `,
     })
   }
 
@@ -72,8 +74,7 @@ export class PokemonService {
             illustrator
           }
         }
-      `
+      `,
     })
   }
-
 }

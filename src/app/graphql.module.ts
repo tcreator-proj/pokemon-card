@@ -1,14 +1,14 @@
-import {NgModule} from '@angular/core';
-import {ApolloModule, APOLLO_OPTIONS} from 'apollo-angular';
-import {InMemoryCache} from '@apollo/client/core';
-import {HttpLink} from 'apollo-angular/http';
+import { NgModule } from '@angular/core'
+import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular'
+import { InMemoryCache } from '@apollo/client/core'
+import { HttpLink } from 'apollo-angular/http'
 
-const uri = 'https://api.tcgdex.net/v2/graphql'; // <-- add the URL of the GraphQL server here
+const uri = 'https://api.tcgdex.net/v2/graphql' // <-- add the URL of the GraphQL server here
 export function createApollo(httpLink: HttpLink) {
   return {
-    link: httpLink.create({uri}),
+    link: httpLink.create({ uri }),
     cache: new InMemoryCache(),
-  };
+  }
 }
 
 @NgModule({

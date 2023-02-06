@@ -1,12 +1,20 @@
-import {debounce} from "underscore";
+import { debounce } from 'underscore'
 
-type Debouncer = (target: object, propertyKey: string, descriptor: PropertyDescriptor) => void;
+type Debouncer = (
+  target: object,
+  propertyKey: string,
+  descriptor: PropertyDescriptor,
+) => void
 
 const Debounce = (ms: number): Debouncer => {
-  return (target: object, propertyKey: string, descriptor: PropertyDescriptor) => {
+  return (
+    target: object,
+    propertyKey: string,
+    descriptor: PropertyDescriptor,
+  ) => {
     descriptor.value = debounce(descriptor.value, ms)
-    return descriptor;
-  };
+    return descriptor
+  }
 }
 
-export default Debounce;
+export default Debounce
