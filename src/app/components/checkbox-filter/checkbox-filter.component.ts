@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges} from '@angular/core';
+import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import QueryParams from "../../types/QueryParams";
 
@@ -7,12 +7,18 @@ import QueryParams from "../../types/QueryParams";
   templateUrl: './checkbox-filter.component.html',
   styleUrls: ['./checkbox-filter.component.sass']
 })
-export class CheckboxFilterComponent{
+export class CheckboxFilterComponent implements OnInit {
   @Input() rarityList!: string[];
   @Input() defaultChecked!: string[];
-  choosesField: string = "Выбраны 0";
+  toggledList: boolean = false;
+  choosesField!: string;
 
   constructor(private router: Router, private route: ActivatedRoute) {
+  }
+
+  ngOnInit(): void {
+    const defLen: number = this.defaultChecked.length;
+    this.choosesField = `Выбраны ${defLen}`;
   }
 
   onChange(event: Event) {
@@ -31,7 +37,6 @@ export class CheckboxFilterComponent{
         }
       })
     }).unsubscribe()
-
   }
 
   checkDefault(value: string): boolean {
@@ -39,5 +44,7 @@ export class CheckboxFilterComponent{
     return this.defaultChecked.includes(value)
   }
 
-
+  toggle() {
+    this.toggledList = !this.toggledList;
+  }
 }

@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
+import QueryParams from "../../types/QueryParams";
 
 @Component({
   selector: 'app-radiobatton-filter',
@@ -10,15 +11,19 @@ export class RadiobattonFilterComponent {
   @Input() categories!: string[];
   @Input() defaultValue: string = '';
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private route: ActivatedRoute) {
   }
   toNavigate(event: Event) {
     const target: HTMLInputElement = <HTMLInputElement> event.target;
-    this.router.navigate(['/'], {
-      queryParams: {
-        category: target.value
-      }
-    })
+    this.route.queryParams.subscribe((params: QueryParams) => {
+      this.router.navigate(['/'], {
+        queryParams: {
+          ...params,
+          category: target.value
+        }
+      })
+    }).unsubscribe()
+
   }
 
 }

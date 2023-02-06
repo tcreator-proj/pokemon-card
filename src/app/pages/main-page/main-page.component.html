@@ -1,13 +1,19 @@
 <main class="main-container">
   <div class="list-container">
-  <app-header>
-    Pokemon cards
-  </app-header>
-  <app-loader *ngIf="loading; else listBlock"></app-loader>
-  <ng-template #listBlock>
-      <app-card-list [cardList]="cards"></app-card-list>
-      <app-paginator [page]="currentPage" [end]="cards.length !== PAGE_COUNT"></app-paginator>
-  </ng-template>
+    <app-header>
+      Pokemon cards
+    </app-header>
+    <div *ngIf="cards.length; else empty">
+      <app-loader *ngIf="loading; else listBlock"></app-loader>
+      <ng-template #listBlock>
+        <app-card-list [cardList]="cards"></app-card-list>
+        <app-paginator [page]="currentPage" [end]="cards.length !== PAGE_COUNT"></app-paginator>
+      </ng-template>
+    </div>
+    <ng-template #empty>
+      <p >Ничего не найдено</p>
+    </ng-template>
+
   </div>
   <aside class="filter-container">
     <app-filter-block

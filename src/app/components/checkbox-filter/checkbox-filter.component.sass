@@ -1,12 +1,14 @@
 $primary: #347CFF
-$secondary: #38ef7d
-$white: #fff
 $gray: #9b9b9b
+
+.form
+  margin-bottom: 20px
 
 .input-block
   position: relative
   padding: 15px 0 0
   margin-top: 10px
+
 
 .input-text
   font-family: inherit
@@ -14,8 +16,9 @@ $gray: #9b9b9b
   border: 0
   border-bottom: 2px solid $gray
   outline: 0
-  font-size: 1.3rem
+  font-size: 1rem
   padding: 7px 0
+  cursor: pointer
   transition: border-color 0.2s
 
   &::placeholder
@@ -26,7 +29,6 @@ $gray: #9b9b9b
     cursor: text
     top: 20px
 
-
 .input-label
   position: absolute
   top: 0
@@ -36,6 +38,38 @@ $gray: #9b9b9b
   color: $gray
 
 ul
-  padding-left: 0
+  background: #FFFFFF
+  margin-top: -2px
+  padding-top: 20px
+  padding-bottom: 17px
+  padding-left: 20px
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23), 0 3px 6px rgba(0, 0, 0, 0.16)
+  &:focus
+    outline: none
   & li
     list-style-type: none
+    margin-bottom: 20px
+
+  & li:nth-last-child(1)
+    margin-bottom: 0
+
+.checkbox
+  transform: scale(1.1)
+  display: inline-block
+  margin-right: 10px
+  opacity: 0.9
+  cursor: pointer
+
+label
+  cursor: pointer
+
+.drop-list
+  display: none
+
+.focused
+  border-bottom-color: $primary
+
+.active
+  display: block
+
+

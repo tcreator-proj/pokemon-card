@@ -25,7 +25,7 @@ export class InputFilterComponent {
           ...page
         }
       })
-    })
+    }).unsubscribe()
 
   }
 }
