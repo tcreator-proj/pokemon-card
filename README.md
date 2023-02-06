@@ -1,3 +1,6 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/85ji80xy5x12nk8d?svg=true)](https://ci.appveyor.com/project/TomuraCreator/pokemon-card)
+
+
 # ApolloGT
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.3.
