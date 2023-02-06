@@ -5,6 +5,8 @@ import {ActivatedRoute} from "@angular/router";
 import QueryParams from "../../types/QueryParams";
 import RequestConfig from "../../types/RequestConfig";
 import {SharedService} from "../../services/shared.service";
+import Data from "../../types/Data";
+import CardsData from "../../types/CardsData";
 
 @Component({
   selector: 'app-main-page',
@@ -14,13 +16,13 @@ import {SharedService} from "../../services/shared.service";
 export class MainPageComponent implements OnInit, OnDestroy {
   readonly PAGE_COUNT: number = 10;
   cards!: Card[];
-  currentPage: number = 1;
+  currentPage = 1;
 
-  nameQuery: string = '';
+  nameQuery = '';
   rarityQuery: string[] = [];
-  categoryQuery: string = "";
+  categoryQuery = "";
 
-  loading: boolean = true;
+  loading = true;
 
   constructor(
     private sharedData: SharedService,
@@ -50,9 +52,10 @@ export class MainPageComponent implements OnInit, OnDestroy {
 
       this.pokemonService
         .getPokeCards(requestConfig)
-        .subscribe((value: any) => {
+        .subscribe((value) => {
+          const data: Data<CardsData> = <Data<CardsData>>value;
           this.loading = false;
-          this.cards = value.data.cards;
+          this.cards = data.data.cards;
         })
     })
   }

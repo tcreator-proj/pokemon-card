@@ -1,10 +1,9 @@
 import {Injectable} from '@angular/core';
-import {Apollo, gql, graphql} from "apollo-angular";
+import {Apollo, gql} from "apollo-angular";
 import {Observable} from "rxjs";
 import Data from "../types/Data";
 import CardData from "../types/CardData";
 import RequestConfig from "../types/RequestConfig";
-import {parseJSON} from "apollo-angular/schematics/utils";
 
 @Injectable({
   providedIn: 'root'

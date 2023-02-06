@@ -16,7 +16,7 @@ export class DetailsPageComponent implements OnInit {
 
   card!: Card;
   queryParams: queryParams;
-  loader: boolean = true;
+  loader = true;
 
   constructor(
     private sharedData: SharedService,

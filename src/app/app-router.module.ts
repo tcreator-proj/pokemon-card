@@ -2,7 +2,6 @@ import {NgModule} from "@angular/core";
 import {RouterModule, Routes} from "@angular/router";
 import {MainPageComponent} from "./pages/main-page/main-page.component";
 import {DetailsPageComponent} from "./pages/details-page/details-page.component";
-import {AppComponent} from "./app.component";
 import {MainLayoutComponent} from "./layout/main-layout/main-layout.component";
 
 const routes: Routes = [

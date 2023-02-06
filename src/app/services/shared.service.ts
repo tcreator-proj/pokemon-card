@@ -6,7 +6,6 @@ import QueryParams from "../types/QueryParams";
 })
 export class SharedService {
   private queryData!: QueryParams;
-  constructor() { }
 
   public getQueryData(): QueryParams {
     return {...this.queryData};

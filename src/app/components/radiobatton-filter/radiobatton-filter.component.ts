@@ -9,7 +9,7 @@ import QueryParams from "../../types/QueryParams";
 })
 export class RadiobattonFilterComponent {
   @Input() categories!: string[];
-  @Input() defaultValue: string = '';
+  @Input() defaultValue = '';
 
   constructor(private router: Router, private route: ActivatedRoute) {
   }

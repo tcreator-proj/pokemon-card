@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import QueryParams from "../../types/QueryParams";
 
@@ -10,7 +10,7 @@ import QueryParams from "../../types/QueryParams";
 export class CheckboxFilterComponent implements OnInit {
   @Input() rarityList!: string[];
   @Input() defaultChecked!: string[];
-  toggledList: boolean = false;
+  toggledList = false;
   choosesField!: string;
 
   constructor(private router: Router, private route: ActivatedRoute) {
@@ -25,8 +25,8 @@ export class CheckboxFilterComponent implements OnInit {
     const target: HTMLInputElement = <HTMLInputElement> event.target;
     const form: HTMLFormElement = <HTMLFormElement>target.form;
     const checkedInputs = Array.from(form)
-      .filter((el: any) => el.checked)
-      .map((input: any) => input.id);
+      .filter((el: Element) => (<HTMLInputElement> el).checked)
+      .map((input) => input.id);
     this.choosesField = `Выбраны ${checkedInputs.length}`
 
     this.route.queryParams.subscribe((params: QueryParams) => {

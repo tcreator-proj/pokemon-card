@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import Throttle from "../../decorators/Debounce";
+import Debounce from "../../decorators/Debounce";
 import QueryParams from "../../types/QueryParams";
 
 @Component({
@@ -9,10 +9,10 @@ import QueryParams from "../../types/QueryParams";
   styleUrls: ['./input-filter.component.sass']
 })
 export class InputFilterComponent {
-  @Input() value: string = "";
+  @Input() value = "";
   constructor(private router: Router, private route: ActivatedRoute) {
   }
-  @Throttle(1000)
+  @Debounce(1000)
   inputFilter(event: Event) {
     const target: HTMLInputElement = <HTMLInputElement> event.target;
     const {value} = target;
